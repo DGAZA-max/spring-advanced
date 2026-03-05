@@ -1,15 +1,11 @@
 package org.example.expert.domain.user.dto.request;
 
-import jakarta.persistence.Column;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Value;
-import org.example.expert.domain.common.exception.InvalidRequestException;
 
 @Getter
 @NoArgsConstructor
