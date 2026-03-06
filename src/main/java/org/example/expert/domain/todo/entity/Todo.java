@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.expert.domain.comment.entity.Comment;
 import org.example.expert.domain.common.entity.Timestamped;
+import org.example.expert.domain.common.exception.InvalidRequestException;
 import org.example.expert.domain.manager.entity.Manager;
 import org.example.expert.domain.user.entity.User;
 
@@ -44,5 +45,11 @@ public class Todo extends Timestamped {
     public void update(String title, String contents) {
         this.title = title;
         this.contents = contents;
+    }
+
+    public void validateOwner(User user){
+        if (this.user == null || !this.getUser().equals(user.getId())){
+            throw new InvalidRequestException("일정을 생성한 유저만 담당자를 지정할 수 있습니다.");
+        }
     }
 }
